@@ -1,0 +1,30 @@
+FROM ruby:3.0
+
+# Install dependencies
+RUN apt-get update -qq && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    postgresql-client \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install correct Bundler version
+RUN gem install bundler:2.3.5
+
+# Set working directory
+WORKDIR /app
+
+# Copy Gemfile first to cache bundle install
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Copy the rest of the app
+COPY . .
+
+# Make entrypoint executable
+RUN chmod +x ./entrypoint.sh
+
+EXPOSE 3000
+CMD ["./entrypoint.sh"]
+

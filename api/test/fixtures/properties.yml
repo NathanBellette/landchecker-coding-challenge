@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  price_cents: 1
+  bedrooms: 1
+  property_type: MyString
+  status: MyString
+  latitude: 9.99
+  longitude: 9.99
+  published_at: 2025-12-09 04:36:26
+
+two:
+  title: MyString
+  description: MyText
+  price_cents: 1
+  bedrooms: 1
+  property_type: MyString
+  status: MyString
+  latitude: 9.99
+  longitude: 9.99
+  published_at: 2025-12-09 04:36:26
